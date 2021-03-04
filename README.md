@@ -12,7 +12,7 @@ Small Project to divide the work into smallest task.
  - Start the server:
         - `npm start`
 
-# Project is deployed on 
+# Project is deployed on https://pl2ern4.github.io/taskit/
         
             
 
