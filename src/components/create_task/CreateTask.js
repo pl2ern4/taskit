@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { useFormik } from 'formik';
 import { Input, TextInput, SelectInput, Button, Error, NewTask, Icon } from './CreateTaskStyle';
 import StyledModalComponent from '../../template/style_modal/StyledModal';
 import { validateCreateTaskForm } from '../../utility';
 
-const CreateTask = ({ team, initalValuesOfForm, handleSubmit }) => {
+const CreateTask = ({ team, handleSubmit }) => {
 
     const [openForm, setOpenForm] = useState(false);
     const initialValuesConstant = {
@@ -12,44 +12,40 @@ const CreateTask = ({ team, initalValuesOfForm, handleSubmit }) => {
         subject: '',
         assignee: 'assignee',
         category: 'todo',
-        importance: 0
+        importance: 'yellow'
     }
     const category = [
-        {Name:'To Do', type:"todo"},
-        {Name:'Working...', type:"working"},
-        {Name:'Done', type:"done"}];
-    
-    const priorty = [{text:'High', color:'red'}, 
-    {text:'Medium', color:'pink'},
-    {text:'Low', color:'yellow'}];
+        { Name: 'To Do', type: "todo" },
+        { Name: 'Working...', type: "working" },
+        { Name: 'Done', type: "done" }];
+
+    const priorty = [{ text: 'High', color: 'red' },
+    { text: 'Medium', color: 'pink' },
+    { text: 'Low', color: 'yellow' }];
 
     const formik = useFormik({
-        initialValues: {...initialValuesConstant},
+        initialValues: { ...initialValuesConstant },
         validate: validateCreateTaskForm,
-        onSubmit: params=>{
-            debugger;
-            handleSubmit(params);
+        onSubmit: values => {
+            handleSubmit(values);
+            formik.resetForm();
+            setOpenForm(false);
         },
     });
 
-    useEffect(() => {
-        if (formik.isSubmitting) {
-            formik.resetForm();
-            setOpenForm(false);
-        }
-        return () => formik.resetForm();
-    }, [formik.isSubmitting])
-
     return (
         <>
-            <NewTask onClick={()=>setOpenForm(true)}><Icon className="far fa-clipboard"></Icon><span>+</span></NewTask>
+            <NewTask onClick={() => setOpenForm(true)}>
+                <Icon className="far fa-clipboard"></Icon>
+                <span>+</span>
+            </NewTask>
             <StyledModalComponent
                 isOpen={openForm}
                 onRequestClose={() => setOpenForm(!openForm)}
                 contentLabel="Create Task"
             >
                 <h1>Create Task</h1>
-                <form onSubmit={formik.handleSubmit}>
+                <form name="create_taskoge" onSubmit={formik.handleSubmit}>
                     <p>
                         <label htmlFor="description">Description: </label>
                         <TextInput
@@ -86,12 +82,12 @@ const CreateTask = ({ team, initalValuesOfForm, handleSubmit }) => {
                             autoComplete="off"
                             onChange={formik.handleChange}
                             value={formik.values.assignee}>
-                                <option value="assignee" disabled>Select Assignee</option>
-                                {team.map((obj,key)=>
-                                            (<option value={obj} key={`assignee_${key}`}>
-                                                {obj}
-                                            </option>))
-}                            </SelectInput>
+                            <option value="assignee" disabled>Select Assignee</option>
+                            {team.map((obj, key) =>
+                                (<option value={obj} key={`assignee_${key}`}>
+                                    {obj}
+                                </option>))
+                            }                            </SelectInput>
                         <Error className={`${formik.errors.assignee && `show` || ``}`}>{formik.errors.assignee}</Error>
                     </p>
                     <p>
@@ -104,10 +100,10 @@ const CreateTask = ({ team, initalValuesOfForm, handleSubmit }) => {
                             autoComplete="off"
                             onChange={formik.handleChange}
                             value={formik.values.category}>
-                                {category.map((obj,key)=>
-                                    <option key={`cat_${key}`}value={obj.type}>
-                                        {obj.Name}
-                                    </option>)}
+                            {category.map((obj, key) =>
+                                <option key={`cat_${key}`} value={obj.type}>
+                                    {obj.Name}
+                                </option>)}
                         </SelectInput>
                         <Error className={`${formik.errors.category && `show` || ``}`}>{formik.errors.category}</Error>
                     </p>
@@ -121,7 +117,7 @@ const CreateTask = ({ team, initalValuesOfForm, handleSubmit }) => {
                             autoComplete="off"
                             onChange={formik.handleChange}
                             value={formik.values.importance}>
-                                {priorty.map((obj,key)=><option value={obj.color} key={`priorty_${key}`}>{obj.text}</option>)}
+                            {priorty.map((obj, key) => <option value={obj.color} key={`priorty_${key}`}>{obj.text}</option>)}
                         </SelectInput>
                         <Error className={`${formik.errors.importance && `show` || ``}`}>{formik.errors.importance}</Error>
                     </p>
