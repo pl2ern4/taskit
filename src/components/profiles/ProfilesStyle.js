@@ -6,7 +6,7 @@ const toolTipColor = "#000000a1";
 const DeleteButton = styled.span`
     background-color: black;
     opacity: 0.7;
-    font-weight: 900;
+    font-weight: 400;
     font-size: 2rem;
     color: white;
     position: fixed;
@@ -20,7 +20,7 @@ const DeleteButton = styled.span`
     vertical-align: middle;
     justify-self: center;
     margin: -26px 0 0 -7px;
-    visibility: hidden;
+    // visibility: hidden;
 `;
 const TeamContainer = styled.div`
     display: flex;
