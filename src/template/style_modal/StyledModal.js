@@ -1,6 +1,5 @@
 import React from 'react';
 import { StyledModal } from './StyledModalStyle';
-import Modal from "react-modal";
 
 StyledModal.setAppElement("#root");
 

@@ -57,7 +57,7 @@ const CreateTask = ({ team, handleSubmit }) => {
                             maxLength={50}
                             onChange={formik.handleChange}
                             value={formik.values.description} />
-                        <Error className={`${formik.errors.description && `show` || ``}`}>{formik.errors.description}</Error>
+                        <Error className={`${(formik.errors.description && `show`) || ``}`}>{formik.errors.description}</Error>
                     </p>
                     <p>
                         <label htmlFor="subject">subject: </label>
@@ -70,7 +70,7 @@ const CreateTask = ({ team, handleSubmit }) => {
                             maxLength={20}
                             onChange={formik.handleChange}
                             value={formik.values.subject} />
-                        <Error className={`${formik.errors.subject && `show` || ``}`}>{formik.errors.subject}</Error>
+                        <Error className={`${(formik.errors.subject && `show`) || ``}`}>{formik.errors.subject}</Error>
                     </p>
                     <p>
                         <label htmlFor="assignee">Assignee: </label>
@@ -88,7 +88,7 @@ const CreateTask = ({ team, handleSubmit }) => {
                                     {obj}
                                 </option>))
                             }                            </SelectInput>
-                        <Error className={`${formik.errors.assignee && `show` || ``}`}>{formik.errors.assignee}</Error>
+                        <Error className={`${(formik.errors.assignee && `show`) || ``}`}>{formik.errors.assignee}</Error>
                     </p>
                     <p>
                         <label htmlFor="category">Category: </label>
@@ -105,7 +105,7 @@ const CreateTask = ({ team, handleSubmit }) => {
                                     {obj.Name}
                                 </option>)}
                         </SelectInput>
-                        <Error className={`${formik.errors.category && `show` || ``}`}>{formik.errors.category}</Error>
+                        <Error className={`${(formik.errors.category && `show`) || ``}`}>{formik.errors.category}</Error>
                     </p>
                     <p>
                         <label htmlFor="category">Priorty: </label>
@@ -119,7 +119,7 @@ const CreateTask = ({ team, handleSubmit }) => {
                             value={formik.values.importance}>
                             {priorty.map((obj, key) => <option value={obj.color} key={`priorty_${key}`}>{obj.text}</option>)}
                         </SelectInput>
-                        <Error className={`${formik.errors.importance && `show` || ``}`}>{formik.errors.importance}</Error>
+                        <Error className={`${(formik.errors.importance && `show`) || ``}`}>{formik.errors.importance}</Error>
                     </p>
                     <p>
                         <Button type="submit">Save</Button>

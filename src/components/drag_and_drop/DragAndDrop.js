@@ -18,7 +18,7 @@ const DragAndDrop = ({ tasks = [], dispatch, team }) => {
     let id = ev.dataTransfer.getData("id");
 
     let newTasks = tasks.filter(task => {
-      if (task.name == id) {
+      if (task.name === id) {
         task.category = cat;
       }
       return task;

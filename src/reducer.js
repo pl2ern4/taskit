@@ -16,7 +16,7 @@ export const reducer = (state, action) => {
       if (!action.taskId) {
         return { ...state };
       }
-      return { ...state, tasks: state.tasks.filter(obj => obj.id != action.taskId) };
+      return { ...state, tasks: state.tasks.filter(obj => obj.id !== action.taskId) };
     case 'ADD_MEMBER':
       return { ...state, team: state.team.concat(action.teamName) };
     case 'DELETE_MEMBER':

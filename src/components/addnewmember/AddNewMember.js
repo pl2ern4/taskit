@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useFormik } from 'formik';
 import {validateNewUserForm} from '../../utility';
 import StyledModalComponent from '../../template/style_modal/StyledModal';
@@ -11,16 +11,12 @@ const AddNewMember = ({ isDuplicate, openForm, setOpenForm, isAccessUser, handle
             name: '',
         },
         validate: params=>validateNewUserForm({isDuplicate, isAccessUser, ...params}),
-        onSubmit: handleSubmit,
-    });
-
-    useEffect(()=>{
-        if(formik.isSubmitting){
+        onSubmit: params=>{
+            handleSubmit(params);
             formik.resetForm();
             setOpenForm(false);
-        }
-        return ()=>formik.resetForm();
-    },[formik.isSubmitting])
+        },
+    });
 
     return (
         <StyledModalComponent
@@ -40,7 +36,7 @@ const AddNewMember = ({ isDuplicate, openForm, setOpenForm, isAccessUser, handle
                         autoComplete="off"
                         onChange={formik.handleChange}
                         value={formik.values.name} />
-                    <Error className={`${formik.errors.name && `show` || ``}`}>{formik.errors.name}</Error>
+                    <Error className={`${(formik.errors.name && `show`) || ``}`}>{formik.errors.name}</Error>
                 </p>
                 <p>
                     <Button type="submit">Save</Button>

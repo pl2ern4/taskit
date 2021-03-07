@@ -2,7 +2,7 @@ export const getName = params => {
     if (!params) {
         return;
     }
-    return (`${params[0]} ${params.split(" ")[1] && params.split(" ")[1][0] || ``}`).toUpperCase();
+    return (`${params[0]} ${(params.split(" ")[1] && params.split(" ")[1][0]) || ``}`).toUpperCase();
 }
 
 export const validateNewUserForm = ({isAccessUser, isDuplicate, ...params}) => {
