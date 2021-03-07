@@ -20,7 +20,7 @@ const DeleteButton = styled.span`
     vertical-align: middle;
     justify-self: center;
     margin: -26px 0 0 -7px;
-    // visibility: hidden;
+    visibility: hidden;
 `;
 const TeamContainer = styled.div`
     display: flex;
