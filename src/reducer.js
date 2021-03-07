@@ -14,7 +14,10 @@ export const reducer = (state, action) => {
       case 'ADD_MEMBER':
         return { ...state, team: state.team.concat(action.teamName) };
       case 'DELETE_MEMBER':
-          return { ...state, team: state.team.filter(obj=>obj!==action.teamName) };
+          return { ...state, 
+                  tasks: state.tasks.filter(obj=>obj.assignee!==action.teamName),
+                  team: state.team.filter(obj=>obj!==action.teamName) 
+                };
       default:
         return state;
     }
