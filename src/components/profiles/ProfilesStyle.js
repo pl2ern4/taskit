@@ -1,26 +1,11 @@
 import styled from "styled-components";
-import { Profile as profile, ImageContainer as ImgContainer } from '../../Style';
+import { Profile as profile, ImageContainer as ImgContainer, DeleteButton } from '../../Style';
 
 const Profile = styled(profile)``;
 const toolTipColor = "#000000a1";
-const DeleteButton = styled.span`
-    background-color: black;
-    opacity: 0.7;
-    font-weight: 400;
-    font-size: 2rem;
-    color: white;
-    position: fixed;
-    width: 3rem;
-    height: 3rem;
-    border-radius: 50%;
-    z-index:5;
-    display: block;
-    text-align: center;
-    margin-top: -26px;
-    vertical-align: middle;
-    justify-self: center;
-    margin: -26px 0 0 -7px;
+const DeleteProfile = styled(DeleteButton)`
     visibility: hidden;
+    margin: -26px 0 0 -7px;
 `;
 const TeamContainer = styled.div`
     display: flex;
@@ -74,4 +59,4 @@ const ImageContainer = styled(ImgContainer)`
         }
 `;
 
-export { TeamContainer, Profile, FullName, ImageContainer, DeleteButton };
+export { TeamContainer, Profile, FullName, ImageContainer, DeleteProfile };

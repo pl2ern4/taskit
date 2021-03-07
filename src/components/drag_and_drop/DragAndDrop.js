@@ -1,5 +1,5 @@
 import React from "react";
-import {DragAndDropStyles,  TaskContainer, TaskCategory, Task, TaskContent, TaskDetail, Profile} from './DragAndDropStyles';
+import {DragAndDropStyles, DeleteTask, TaskContainer, TaskCategory, Task, TaskContent, TaskDetail, Profile} from './DragAndDropStyles';
 import CreateTask from '../create_task/CreateTask';
 import {getName} from '../../utility';
 
@@ -13,7 +13,12 @@ const newtasks = {'working':[],'done':[],'todo':[]};
     ev.preventDefault();
   };
 
-  const handleSubmit = params => dispatch({type: 'CREATE_TASK', task:params})
+  const deleteTask = params => {
+    debugger;
+    dispatch({type:'DELETE_TASK', taskId:params});
+  }
+
+  const handleSubmit = params => dispatch({type: 'CREATE_TASK', task:params});
 
   const onDrop = (ev, cat) => {
     let id = ev.dataTransfer.getData("id");
@@ -26,16 +31,16 @@ const newtasks = {'working':[],'done':[],'todo':[]};
     });
 
     dispatch({type: 'CREATE_TASK', task:[...newTasks]})
-    
   };
     tasks.forEach(t => {
         newtasks[t.category].push(
           <Task
-            key={t.name}
+            key={`task_${t.id}`}
             onDragStart={e => onDragStart(e, t.name)}
             draggable
             importance={`${t.importance}`}
             >
+            <DeleteTask onClick={()=>deleteTask(t.id)}>x</DeleteTask>
             <TaskDetail>{t.subject}</TaskDetail>
             <Profile>
               {getName(t.assignee)}

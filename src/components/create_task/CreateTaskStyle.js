@@ -27,6 +27,7 @@ const NewTask = styled.div`
     right: 2rem;
     width: 4rem;
     height: 4rem;
+    cursor:pointer;
     background-color:black;
     border-radius:50%;
     opacity:0.5;
@@ -42,12 +43,10 @@ const NewTask = styled.div`
 `;
 
 const Icon = styled.i`
-    cursor:pointer;
     font-size: 30px;
     text-align: center;
     position: absolute;
     top: 1rem;
-    
     right: 1.2rem;
 `;
 export { Error, Input, Button, TextInput, SelectInput, NewTask, Icon };

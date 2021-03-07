@@ -35,6 +35,23 @@ const Input = styled.input`
     }
 `;
 
+const DeleteButton = styled.span`
+    background-color: black;
+    opacity: 0.7;
+    font-weight: 400;
+    font-size: 2rem;
+    color: white;
+    position: absolute;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    z-index:5;
+    display: block;
+    text-align: center;
+    vertical-align: middle;
+    justify-self: center;    
+`;
+
 
 const Button = styled.button`
     width:100%;
@@ -48,4 +65,4 @@ const Button = styled.button`
     }
 `;
 
-export { Profile,ImageContainer,Button, Input, Error };
+export { Profile,ImageContainer,Button, Input, Error, DeleteButton };

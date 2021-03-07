@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Profile, ImageContainer, FullName, TeamContainer, DeleteButton } from './ProfilesStyle';
+import { Profile, ImageContainer, FullName, TeamContainer, DeleteProfile } from './ProfilesStyle';
 import { getName } from '../../utility';
 import AddNewMember from '../addnewmember/AddNewMember';
 
@@ -12,7 +12,7 @@ const Profiles = ({ team = [], handleSubmit, deleteUser }) => {
             return (<Profile key={`profile-${key}`}>
                 <ImageContainer>
                     <span>{getName(obj)}</span>
-                    <DeleteButton onClick={() => deleteUser(obj)}>x</DeleteButton>
+                    <DeleteProfile onClick={() => deleteUser(obj)}>x</DeleteProfile>
                     <FullName>{obj}</FullName>
                 </ImageContainer>
             </Profile>)

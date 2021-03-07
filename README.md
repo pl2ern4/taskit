@@ -21,6 +21,6 @@ Small Project to divide the work into smallest task.
 - On mouse over of Profiles fullname tool tip will be visible, which will shows the Full name of the profile.
 - On mouse over of the profile Cross icon will be visible, on Click of that any user can be deleted.
 - Notepad Icon in bottom right corner is used to create new Task
-- On mouse over of any task cross button on left will help to delete task.
+- Cross icon on top right corner of card help to delete any task
 - Task's can be deleted  . 
 

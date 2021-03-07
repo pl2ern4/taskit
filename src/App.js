@@ -7,10 +7,10 @@ import './App.css';
 
 function App() {
   const tasks = [
-    { description: "create a task", subject: "tasking nklnkln ndnkl nkl nlkllr", assignee: "Wca hgfh", category: 'todo', importance: "yellow" },
-    { description: "create a task", subject: "tasking", assignee: "Tnsajnk bjvbk", category: 'todo', importance: "yellow" },
-    { description: "create a task", subject: "tasking", assignee: "Zee eee", category: 'working', importance: "red" },
-    { description: "create a task", subject: "tasking", assignee: "Zinat erfj", category: 'done', importance: "pink" },
+    { id:1, description: "create a task", subject: "tasking nklnkln ndnkl nkl nlkllr", assignee: "Wca hgfh", category: 'todo', importance: "yellow" },
+    { id:2, description: "create a task", subject: "tasking", assignee: "Tnsajnk bjvbk", category: 'todo', importance: "yellow" },
+    { id:3, description: "create a task", subject: "tasking", assignee: "Zee eee", category: 'working', importance: "red" },
+    { id:4, description: "create a task", subject: "tasking", assignee: "Zinat erfj", category: 'done', importance: "pink" },
   ]
   const team = ["Tnsajnk bjvbk",
     "Zinat erfj",

@@ -7,7 +7,10 @@ export const reducer = (state, action) => {
       case 'CREATE_TASK':
         return { ...state, tasks: state.tasks.concat(action.task) };
       case 'DELETE_TASK':
-        return { ...state, tasks: state.tasks.filter(obj=>obj.subject!=action.task.subject) };
+        if(!action.taskId){
+          return {...state};
+        }
+        return { ...state, tasks: state.tasks.filter(obj=>obj.id!=action.taskId) };
       case 'ADD_MEMBER':
         return { ...state, team: state.team.concat(action.teamName) };
       case 'DELETE_MEMBER':

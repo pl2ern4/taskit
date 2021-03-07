@@ -1,10 +1,21 @@
 import styled from "styled-components";
-import {Profile as profile} from '../../Style';
+import {Profile as profile, DeleteButton} from '../../Style';
 
 const DragAndDropStyles = styled.div`
     text-align: center;
     position: relative;
     top: 7rem;
+`;
+
+const DeleteTask =  styled(DeleteButton)`
+    display: block;
+    text-align: center;
+    margin-left: 7.5rem;
+    width: 1.5rem;
+    height: 1.5rem;
+    line-height: 1.2rem;
+    font-size: 1.5rem;
+    margin-top: 0.5rem;
 `;
 
 const TaskContainer = styled.div`
@@ -38,11 +49,13 @@ const TaskDetail = styled.div`
     text-align: justify;
     margin: 0.5rem;
     text-overflow: ellipsis;
+    padding: 1rem 2rem 1rem 0.1rem;
 `;
 
 const Profile = styled(profile)`
     left: 3rem;
     bottom: 2rem;
+    line-height:1.2rem;
 `;
 
 const Task = styled.div`
@@ -52,7 +65,7 @@ const Task = styled.div`
     margin: 5px auto;
     line-height: 5em;
     cursor: pointer;
-    background-color:${props=>props.importance}
+    background-color:${props=>props.importance}    
 `;
 
-export {DragAndDropStyles,  TaskContainer, TaskCategory, TaskContent, Task, Profile , TaskDetail};
+export {DragAndDropStyles, DeleteTask, TaskContainer, TaskCategory, TaskContent, Task, Profile , TaskDetail};
